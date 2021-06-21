@@ -8,18 +8,32 @@ import { Grid, Center } from '../lib/styles/generalStyles';
 const CoronaAPI = () => {
   const [data, setData] = useState(null);
   const [counter, setCounter] = useState(24);
+  const [searchResults, setSearchResults] = useState('');
+
   useEffect(() => {
     fetch('https://corona.lmao.ninja/v3/covid-19/countries')
       .then((res) => res.json())
-      .then((data) => setData(data));
+      .then((data) => {
+        setData(data);
+        setSearchResults(data);
+      });
   }, []);
-  console.log(data);
+
+  const handleSearch = (input) => {
+    const filteredValue = searchResults.filter((country) =>
+      country.country.toLowerCase().includes(input.toLowerCase())
+    );
+    setData(filteredValue);
+  };
 
   return (
     <Section>
       <Center>
         {' '}
-        <Searchbar />
+        <Searchbar
+          onValueChange={handleSearch}
+          placeholder={'Input wanted country...'}
+        />
       </Center>
       <Grid>
         {data &&

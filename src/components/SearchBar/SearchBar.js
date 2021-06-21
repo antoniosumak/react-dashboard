@@ -1,10 +1,14 @@
 import React from 'react';
 import { SearchbarWrapper, SearchbarInput } from './SearchBarStyles';
 
-const Searchbar = () => {
+const Searchbar = ({ onValueChange, placeholder }) => {
   return (
     <SearchbarWrapper>
-      <SearchbarInput />
+      <SearchbarInput
+        type="text"
+        onChange={(input) => onValueChange(input.target.value)}
+        placeholder={placeholder}
+      />
     </SearchbarWrapper>
   );
 };
