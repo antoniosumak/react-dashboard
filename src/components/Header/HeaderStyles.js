@@ -1,5 +1,6 @@
-import styled, { keyframes, css } from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { boxShadow, breakpoints, colors } from '../../lib/styles/theme';
+import { NavLink } from 'react-router-dom';
 
 export const HeaderContainer = styled.header`
   height: 80px;
@@ -47,10 +48,12 @@ export const NavList = styled.ul`
   justify-content: center;
 `;
 
-export const NavItems = styled.p`
+export const NavItems = styled(NavLink)`
   margin: 16px 0px;
   position: relative;
   font-size: 28px;
+  text-decoration: none;
+  color: ${colors.black};
 
   &:last-child {
     margin-right: 0px;
@@ -64,6 +67,12 @@ export const NavItems = styled.p`
     margin: 0px 16px;
     font-size: 16px;
 
+    &:before {
+      content: '';
+      width: 0%;
+      transition: 0.3s ease-in-out;
+    }
+
     &:hover {
       cursor: pointer;
 
@@ -71,10 +80,10 @@ export const NavItems = styled.p`
         content: '';
         position: absolute;
         display: block;
-        width: 100%;
         bottom: -28px;
-        background-color: ${colors.blue};
+        background: ${colors.blue};
         height: 4px;
+        width: 100%;
       }
     }
   }
@@ -124,6 +133,7 @@ export const HamburgerMenu = styled.div`
   /*  display: ${(props) => (props.navigationOpened ? 'flex' : 'none')}; */
   display: flex;
   width: 100%;
+  z-index: 10;
   height: calc(100% - 80px);
   flex-direction: column;
   justify-content: center;
