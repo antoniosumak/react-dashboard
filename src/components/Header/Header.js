@@ -42,7 +42,11 @@ const Header = () => {
 
       <HamburgerMenu navigationOpened={navigationOpened}>
         {links.map((value, index) => (
-          <NavItems key={index} to={value.path}>
+          <NavItems
+            key={index}
+            to={value.path}
+            onClick={() => setIsOpened(false)}
+          >
             {value.link}
           </NavItems>
         ))}

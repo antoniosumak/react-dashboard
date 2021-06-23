@@ -12,4 +12,5 @@ export const colors = {
   red: '#760933',
   beige: '#f7f5eb',
   black: '#333333',
+  green: '#007f66',
 };

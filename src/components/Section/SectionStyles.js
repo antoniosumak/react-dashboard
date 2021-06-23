@@ -5,6 +5,7 @@ export const SectionWrapper = styled.section`
   position: relative;
   top: 30px;
   padding: 0px 24px;
+  min-height: 100vh;
 
   @media screen and (${breakpoints.tablet}) {
     padding-top: 40px;
