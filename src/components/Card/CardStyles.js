@@ -10,6 +10,11 @@ export const CardWrapper = styled.div`
   border-top: 8px solid
     ${(props) => (props.active < 1000 ? `${colors.green}` : `${colors.red}`)};
   border-radius: 10px;
+  transition: 0.3s ease-in-out;
+
+  &:hover {
+    transform: translateY(-10px);
+  }
 `;
 
 export const ImageContainer = styled.figure`

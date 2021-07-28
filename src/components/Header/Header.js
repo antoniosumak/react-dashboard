@@ -17,6 +17,7 @@ const Header = () => {
   const links = [
     { link: 'Corona API', path: '/' },
     { link: 'Dashboard 2', path: '/dashboard' },
+    { link: 'Blog', path: '/blog' },
   ];
   return (
     <HeaderContainer>
